@@ -1,0 +1,359 @@
+body {
+    background-color: black;
+    color: #fff;
+}
+
+main {
+    margin: 0 auto;
+    margin-top: calc(20px + 100px);
+    width: calc(100% - 50px * 2);  
+}
+
+.Artist {
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: var(--first-color);
+    margin-bottom: 100px;
+}
+
+.profilecontainer {
+    border: 1px solid rgb(255, 255, 255);
+    margin-left: 300px;
+}
+
+.userPhoto {
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    color: var(--first-color);
+}
+
+.container {
+    display: flex;
+}
+
+.userProfile {
+    width: 350px;
+}
+
+.info-group.container{
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 1.75rem;
+    margin-top: 60px;
+    white-space: nowrap;    /* ... */
+    text-overflow: ellipsis;    /* ... */
+    color: var(--first-color);
+    border: 1px solid rgb(255, 255, 255);
+    height: 200px;
+}
+
+.info-group.container:first-child{
+    margin-left: 200px;
+    border-right: 1px #000000;
+}
+
+.info-group.container:last-child{
+    border-left: 1px #000000;
+}
+
+.info {
+    flex-direction: column;
+}
+
+.column-container {
+    border: 1px solid rgb(255, 255, 255);
+    width: 80%; /*전체 화면에서 60%의 크기 유지*/
+    height: 250px;
+    display: flex;
+    flex-direction: column; 
+    margin: 0 auto;  
+}
+
+.singer {
+    margin-bottom: 20px;
+}
+
+.items-container {
+    display: flex;
+    text-align:center;
+    justify-content: space-around;
+    color: var(--first-color);
+}
+
+.CategoryCover {
+    width: 200px;
+    height: 140px;
+    margin-top: 10px;
+}
+
+.CategoryTitle {
+    border: 1px solid rgb(174, 54, 54);
+    width: 200px;
+    font-size: 20px;
+    margin-top: 70px;
+    text-align: left;
+}
+
+.title,
+.title-text,
+.debut,
+.debut-text,
+.agency,
+.agency-text,
+.activity,
+.activity-text {
+    font-size: 1.25rem;
+    white-space: nowrap;    /* ... */
+    overflow: hidden;       /* ... */
+    text-overflow: ellipsis;    /* ... */
+    color: #fff;
+    margin-top: 15px;
+}
+
+.musicByDate {
+    width: 115px;
+    text-align: left;
+    margin-left: 142px;
+    margin-top: 60px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;  /*내부 투명하게*/
+    color: var(--first-color);
+}
+
+@media screen and (max-width: 1200px) {
+
+    .profilecontainer {
+        border: 1px solid rgb(255, 255, 255);
+        margin-left: 160px;
+    }
+
+    .info-group.container:first-child{
+        margin-left: 180px;
+    }
+
+    .userProfile {
+        width: 300px;
+    }    
+
+    .column-container {
+        height: 230px;
+    }
+    
+    .CategoryCover {
+        width: 170px;
+    }
+
+    .CategoryTitle {
+        border: 1px solid rgb(54, 174, 84);
+        margin-top: 40px;
+        width: 170px;
+    }
+
+    .musicByDate {
+        margin-left: 107px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+
+    .profilecontainer {
+        border: 1px solid rgb(255, 255, 255);
+        margin-left: 110px;
+    }
+
+    .userProfile {
+        width: 250px;
+    }    
+
+    .info-group {
+        font-size: 1.5rem;
+    }
+
+    .column-container {
+        height: 200px;
+        border: 1px solid rgb(54, 174, 84);
+    }
+
+    .CategoryCover {
+        width: 150px;
+    }
+
+    .CategoryTitle {
+        border: 1px solid rgb(118, 54, 174);
+        margin-top: 20px;
+        width: 150px;
+    }
+
+    .musicByDate {
+        margin-left: 90px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .title,
+    .title-text,
+    .debut,
+    .debut-text,
+    .agency,
+    .agency-text,
+    .activity,
+    .activity-text {
+        font-size: 1rem;
+    }
+
+    .info-group.container:first-child{
+        margin-left: 130px;
+    }
+
+    .profilecontainer {
+        margin-left: 80px;
+    }
+
+    .userProfile {
+        width: 230px;
+    }    
+
+    .info-group {
+        margin-top: 40px;
+    }
+
+    .column-container {
+        height: 170px;
+        border: 1px solid rgb(122, 9, 9);
+    }
+
+    .CategoryCover {
+        width: 120px;
+        height: 120px;
+    }
+
+    .CategoryTitle {
+        border: 1px solid rgb(150, 174, 54);
+        margin-top: 10px;
+        width: 120px;
+        font-size: 15px;
+    }
+
+    .musicByDate {
+        margin-left: 77px;
+    }
+}
+
+/* tablet */
+@media screen and (max-width: 720px) {
+
+    .userProfile {
+        width: 190px;
+    }
+
+    .info-group.container:first-child{
+        margin-left: 40px;
+    }
+
+    .column-container {
+        height: 140px;
+        border: 1px solid rgb(9, 81, 122);
+    }
+
+    .CategoryCover {
+        width: 100px;
+        height: 100px;
+    }
+
+    .CategoryTitle {
+        border: 1px solid rgb(174, 54, 88);
+        width: 100px;
+        font-size: 13px;
+    }
+
+    .musicByDate {
+        margin-left: 60px;
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 540px) {
+    
+    .image-info-groups {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(138, 64, 64);
+    }
+
+    .profilecontainer {
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+
+    .userPhoto {
+        margin-bottom: 20px;
+    }
+    .userProfile {
+        width:300px;
+    }    
+
+    .info-group {
+        margin-left: 0px;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .info-group.container:first-child{
+        margin-left: 60px;
+    }
+
+    .itmes {
+        margin-bottom: 20px;
+        width:300px;
+    }
+
+    .column-container {
+        height: 180px;
+        width: 385px;
+        margin-bottom: 20px;
+        border: 1px solid rgb(9, 81, 122);
+    }
+
+    .column-container:last-child{
+        margin-bottom: 100px;
+    }
+
+    /* 추가된 부분: CategoryCover 관련 스타일 */
+    .CategoryCover:nth-child(n+3) {
+        display: none; /* 2개까지만 보이도록 설정 */
+    }
+
+    .CategoryTitle:nth-child(n+3) {
+        display: none; /* 2개까지만 보이도록 설정 */
+    }
+
+    .CategoryCover {
+        width: 130px;
+        height: 130px;
+    }
+
+    .CategoryTitle {
+        border: 1px solid rgb(174, 54, 88);
+        width: 130px;
+        font-size: 15px;
+    }
+
+    .musicByDate {
+        margin-left: 0px;
+    }
+
+    .title,
+    .title-text,
+    .debut,
+    .debut-text,
+    .agency,
+    .agency-text,
+    .activity,
+    .activity-text {
+        font-size: 1.25rem;
+    }
+}

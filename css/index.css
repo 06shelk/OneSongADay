@@ -1,0 +1,44 @@
+body {
+    background-image: url('../images/다운로드1.png');
+    background-size: 100vw 100vh;
+    background-repeat : no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh ; /* 화면 높이에 맞게 설정 */
+    /* font-family: var(--body-font); 기본 폰트 설정 */
+    color: var(--first-color); /* 기본 텍스트 색상 설정 */
+}
+
+.mainEx,
+.mainTitle,
+.mainBtn{
+    color: var(--first-color);
+    margin: 5px;
+}
+
+.mainTitle {
+    border: var(--font-bold);
+}
+
+.mainBtn {
+    background-color: transparent;  /*테두리 투명하게*/
+    margin: 15px;
+    padding: 10px 30px; /*간격 넓히기*/
+    border-color: var(--first-color);
+}
+
+/* tablet */
+@media screen and (max-width: 720px) {
+    body {
+        background-size: cover; /* 화면에 맞게 사이즈 조정 */
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 540px) {
+    body {
+        background-size: cover;
+    }
+}

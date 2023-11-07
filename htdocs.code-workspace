@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "htdocs",
+			"path": "."
+		},
+		{
+			"name": "music",
+			"path": "..\\..\\..\\..\\project\\OneSongADay\\OneSongADay-민주\\music"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}

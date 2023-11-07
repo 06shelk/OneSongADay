@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
+/* Variables CSS */
+:root {
+    --first-color: #fff;
+    --body-color: #000000;
+
+    /* font */
+    --body-font: 'Inter', serif;
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.8rem;
+    --smaller-font-size: 0.6rem;
+    --font-thin: 200;
+    --font-regular: 400;
+    --font-bold: 700;
+}
+body {
+    font-family: var(--body-font);
+    color: var(--first-color);
+}
+
+.nav-container {
+    align-items: center;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 50px;
+}
+.nav-container a {
+    color: #ffffff;    /* 링크 하얗게 */
+}
+.nav-list {
+    display: flex;  /* 기본값: 수평 정렬 */
+    justify-content: space-around;
+    font-weight: var(--font-extra-bold);
+    font-size: var(--h3-font-size);
+    /* margin: auto 100px; */
+}
+
+.nav-link {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+}
+
+.nav-toggle {
+    font-size: var(--h2-font-size); /* 햄버거 메뉴 살짝 크게 */
+    visibility: hidden; /* 햄버거 메뉴 안보이게 */
+}
+
+@media screen and (max-width: 1200px) {
+    .nav-list {
+        margin: auto 60px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav-list {
+        margin: auto 40px;
+    }
+}
+
+/* tablet */
+@media screen and (max-width: 720px) {
+    .nav-list {
+        margin: auto 20px;
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 540px) {
+    .nav-list {
+        position: absolute;
+        top: 44px;  /* navbar 아래로 */
+        right: 0;   /* 너비를 양 옆으로 늘리기 */
+        left: 0;    /* 너비를 양 옆으로 늘리기 */
+        flex-direction: column; /* 수직 배열 */
+        text-align: center; /* 글자만 가운데로 */
+        background-color: rgba(255, 255, 255, 0.83);
+        height: 0;
+        overflow: hidden;
+        transition: 0.4s;
+        z-index: 999;
+        width: 380px;
+        border: 1px solid red;
+    }
+
+    .nav-container a {
+        color: #000000;    /* 링크 하얗게 */
+    }
+    
+    .nav-item {
+        padding: 2em 0;
+        border-bottom: 2px solid #000000;
+    }
+    .nav-link {
+        display: block;
+        text-decoration: none; /* 링크의 밑줄 제거 */
+    }
+
+    #logo {
+        margin: 0 auto;
+        visibility: visible; /* 햄버거 메뉴 안보이게 */
+    }
+
+    /* .nav-toogle 보이게 */
+    .bi.bi-list {
+        visibility: visible;
+        justify-content: left;
+        padding-left: 20px;
+    }
+
+    /* .show-menu하면, .nav-list 보이게 */
+    /* .show-menu하면, .nav-toggle 버튼 X로 */
+    .show-menu {
+        height: 420px;
+        width: 380px;
+    }
+}

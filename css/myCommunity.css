@@ -1,0 +1,135 @@
+body {
+    background-color: var(--body-color); 
+ }
+
+ /* 화면 전체의 내용 컨테이너 */
+ .board {
+    margin: 0 auto; 
+    margin-top: 50px;
+    width: calc(100% - 30px * 2);
+    max-width: 600px;
+ }
+
+ /* 취소 버튼 */
+ .cancel {
+    color: var(--first-color);
+    background-color: var(--body-color);
+    font-size: 20px;
+    margin-top: 50px;
+    position: fixed;
+}
+
+ /* board의 내용이 담겨있음 */
+ .board-lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px; 
+    padding-top: 100px;
+ }
+
+ .board-item {
+    width: 65%;
+    height: 350px;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--first-color);
+ }
+
+
+ /* 사용자 프로필 */
+ .image {
+     width: 50px;
+     height: 50px;
+     background-color: rgb(200, 200, 200);
+     border: 1px solid var(--body-color);
+     border-radius: 50%;
+     margin-right: 8px;
+ }
+
+ /* 노래 커버 */
+ .songCover {
+     width: 150px;
+     height: 150px;
+     background-color: rgb(200, 200, 200);
+     border: 1px solid var(--body-color);
+     margin: 0 auto;
+     margin-top: 40px;
+     margin-bottom: 10px;
+    overflow: hidden;
+ }
+
+ /* x 와 게시하기 버튼 */
+ .subButton {
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     margin-top: calc(44px + 30px);
+     height: 30px;
+     width: calc(100% - 100px * 2);
+     max-width: 400px;
+ }
+
+ /* 사용자 이름과 프로필 사진 */
+ .pro {
+     display: flex;  /* 기본값: 수평 정렬 */
+     height: 50px;
+     line-height: 50px;
+     margin-bottom: 10px;
+     
+ }
+
+
+ /* 노래 제목과 컨텐츠 */
+ .board-items input[type="text"],
+ .board-items textarea {
+     width: 100%; /* 입력 요소가 부모 요소에 꽉 차도록 설정 */
+     box-sizing: border-box; /* width와 height에 padding과 border를 포함시킴 */
+     margin-bottom: 10px; /* 각 입력 요소 사이의 간격 조절 (선택적) */
+     resize: none;
+     border: none;
+     font-family: inherit;
+     font-size: inherit;
+ }
+
+ /* + 아이콘 */
+ .bi-plus-circle {
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     color: var(--body-color);
+ }
+
+.name, #boardTitle, #boardCont {
+    color: black;
+}
+
+
+
+ /* 게시하기 버튼 */
+ .post1 {
+     color: var(--first-color);
+     background-color: #2C2C2C;
+     border: 1px solid #2C2C2C;
+     padding: 10px;
+     line-height: 10px;
+ }
+
+.Good {
+    color: var(--body-color);
+}
+
+.goodCount {
+    padding-left: 5px;
+}
+
+
+/* mobile */
+@media screen and (max-width: 540px) {
+    .board-item {
+        height: 400px;
+    }
+}
