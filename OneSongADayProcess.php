@@ -5,10 +5,6 @@
 
     session_start(); // 세션 시작
 
+    //onesongaday.php?id=숫자 이거 저장
     $_SESSION["oneSongUrl"] = $_SERVER['REQUEST_URI'];
-
-echo '<script>';
-echo 'console.log("'.$_SESSION["oneSongUrl"].'")';
-echo '</script>';
-
 ?>

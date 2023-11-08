@@ -1,6 +1,4 @@
 <?php
-// settings.php
-
 // 세션 시작
 session_start();
 
@@ -71,7 +69,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                 </form>
                 
                 <div class="userProfile">
-                    <img id="profileImage" src="" alt="">
+                    <img id="profileImage" img src="userImg/basicPro.jpg'" alt="이미지" onerror="this.src='userImg/basicPro.jpg'">
                 </div>
             </div>
 

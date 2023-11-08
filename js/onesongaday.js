@@ -143,6 +143,7 @@ $(document).ready(function() {
                     listItem.textContent = title;
                     listItem.classList.add("listSongTitle"); // 클래스 추가
                     listSongTitle.appendChild(listItem);
+                    listSongTitle.style.cursor = "pointer";
                 }
             });
         },
@@ -151,20 +152,32 @@ $(document).ready(function() {
         }
     });
 
-    // "bi-chevron-right" 아이콘을 클릭할 때 추가 노래 제목을 보여주기
-    const chevronRightIcon = document.querySelector(".bi-chevron-right");
-    chevronRightIcon.addEventListener("click", function() {
-        const listSongTitle = document.querySelector(".playlist-item");
-        const songTitles = response; // response 변수는 위의 AJAX 요청에서 가져온 노래 제목 배열입니다.
-        const existingSongsCount = listSongTitle.children.length;
-        const newSongs = songTitles.slice(existingSongsCount, existingSongsCount + 4);
-
-        // 추가 노래 제목을 리스트에 추가
-        newSongs.forEach(function(title) {
-            const listItem = document.createElement("li");
-            listItem.textContent = title;
-            listItem.classList.add("listSongTitle"); // 클래스 추가
-            listSongTitle.appendChild(listItem);
-        });
+    listSongTitle.addEventListener("click", function(event) {
+        if (event.target.classList.contains("listSongTitle")) {
+            // 클릭된 요소가 listSongTitle 클래스를 가지고 있는 경우에만 처리를 수행합니다.
+            const clickedItem = event.target;
+            const selectedTitle = clickedItem.textContent;
+    
+            // albums 배열에서 선택된 노래 정보를 찾기
+            const selectedSong = albums.find(song => song.title === selectedTitle);
+    
+            // 선택된 노래 정보로 변수들 업데이트
+            if (selectedSong) {
+                title = selectedSong.title;
+                singer = selectedSong.singer;
+                artistImage = selectedSong.img;
+                music = selectedSong.music;
+    
+                // 업데이트된 값으로 UI 업데이트
+                idImageDiv.innerHTML = `<img src="${artistImage}" />`;
+                titleDiv.innerHTML = title;
+                singerrDiv.innerHTML = singer;
+                audioPlayer.src = music;
+            } else {
+                console.error("선택된 노래를 찾을 수 없습니다.");
+            }
+        }
     });
+    
+
 });

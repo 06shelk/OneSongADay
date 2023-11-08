@@ -1,5 +1,4 @@
 <?php
-
 include 'OneSongADayProcess.php';
 ?>
 
@@ -23,8 +22,6 @@ include 'OneSongADayProcess.php';
 
             <ul class="nav-list">
             <?php
-            
-
             // 세션 변수에서 oneSongUrl 값 읽어오기
             if (isset($_SESSION["oneSongUrl"])) {
                 $oneSongUrl = $_SESSION["oneSongUrl"];
