@@ -13,23 +13,25 @@ for (let idOne of albums) {
     }
 }
 
-//test.js에서 가져온 값 확인하기
+// test.js에서 가져온 값 확인하기
 let title = idData.title;
 let singer = idData.singer;
 let artistImage = idData.img;
 let music = idData.music;
 console.log(title, singer, artistImage, music);
 
+// 세션 스토리지에 title 값을 저장
+sessionStorage.setItem("title", title);
+
 const idImageDiv = document.getElementsByClassName("osodCover")[0];
 idImageDiv.innerHTML = `<img src="${artistImage}" />`;
 
-//HTML 요소 -> js 변수
+// HTML 요소 -> js 변수
 const titleDiv = document.getElementsByClassName("osodSongTitle")[0];
 titleDiv.innerHTML = title;
 
-const singerrDiv = document.getElementsByClassName("osodSinger")[0];
-singerrDiv.innerHTML = singer;
-
+const singerDiv = document.getElementsByClassName("osodSinger")[0];
+singerDiv.innerHTML = singer;
 
 
 // 로그인된 사용자의 정보

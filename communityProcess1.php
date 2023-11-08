@@ -215,7 +215,7 @@ if (!$result) {
                     echo "<a href='board_view1.php?boardID=" . $row["boardID"] . "'>";
                     echo "<div class='pro'>";
                     echo "<div class='board-item'>";
-                    echo "<div class='image'></div>";
+                    echo "<div class='image'><img id='profileImage' img src='userImg/basicPro.jpg'' alt='이미지' onerror='this.src='userImg/basicPro.jpg''></div>";
                     echo "</div>";
                     echo "<div class='board-hu'>";
                     echo "<div class='board-item'>";

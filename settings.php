@@ -87,8 +87,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                         <div class="itmes">
                             Today's Song
                         </div>
-                        <div class="itme">
-                            루시 - 아지랑이
+                        <div class="itme tS">
+                           
                         </div>
                     </div>
                 </div>

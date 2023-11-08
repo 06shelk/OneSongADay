@@ -59,7 +59,7 @@ session_start();
                 <div class="board-lists">
                     <div class="pro">
                         <div class="board-items">
-                        <div class="image" style="background-image: url('<?php echo $_SESSION['userimage']; ?>');"></div>
+                        <div class="image"></div>
                         </div>
                         <div class="board-items">
                         <div class="name"><?php echo $_SESSION['username']; ?></div>

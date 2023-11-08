@@ -131,6 +131,7 @@ body {
     border: 1px solid var(--body-color);
     border-radius: 50%;
     margin: 10px 8px;
+    overflow: hidden;
 }
 
 /* 노래표지와 좋아요 영역 */

@@ -21,6 +21,19 @@ eyedropperIcon.addEventListener('click', () => {
 
 
 
+// today-song
+let storedTitle = sessionStorage.getItem("title");
+
+// 가져온 title 값을 사용하여 원하는 작업 수행
+console.log(storedTitle);
+
+const itemDiv = document.querySelector(".itme.tS");
+itemDiv.innerHTML = storedTitle
+
+
+
+
+
 // 파일이 선택되면 파일 업로드 이벤트 처리
 fileInput.addEventListener('change', () => {
     const selectedFile = fileInput.files[0];
@@ -52,7 +65,6 @@ fileInput.addEventListener('change', () => {
 });
 
 
-
 // 로그아웃 기능
 const logoutBtn = document.querySelector('.signoutNext');
 
@@ -63,3 +75,5 @@ logoutBtn.addEventListener('click', function(){
         window.location.href = 'logout.php';
     } 
 });
+
+
