@@ -173,7 +173,7 @@ $(document).ready(function() {
                 // 업데이트된 값으로 UI 업데이트
                 idImageDiv.innerHTML = `<img src="${artistImage}" />`;
                 titleDiv.innerHTML = title;
-                singerrDiv.innerHTML = singer;
+                singerDiv.innerHTML = singer;
                 audioPlayer.src = music;
             } else {
                 console.error("선택된 노래를 찾을 수 없습니다.");
