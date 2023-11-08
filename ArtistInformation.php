@@ -1,3 +1,7 @@
+<?php 
+    include 'db_connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
     <link rel="stylesheet" href="css/artistInformation.css">
 </head>
 <body>
-    <header>
+<header>
         <nav class="nav-container">
 
             <div class="nav-toggle" id="nav_toggle">
@@ -19,10 +23,24 @@
             </div>
 
             <ul class="nav-list">
-                <li class="nav-item"><a href="OneSongADay.html" class="nav-link">하루한곡</a></li>
-                <li class="nav-item"><a href="musicCategory.html" class="nav-link">음악 카테고리</a></li>
-                <li class="nav-item"><a href="board.html" class="nav-link">커뮤니티</a></li>
-                <li class="nav-item"><a href="Settings.html" class="nav-link">설정</a></li>
+            <?php
+            session_start(); // 세션 시작
+
+            // 세션 변수에서 oneSongUrl 값 읽어오기
+            if (isset($_SESSION["oneSongUrl"])) {
+                $oneSongUrl = $_SESSION["oneSongUrl"];
+                
+            } else {
+                // 세션 변수가 설정되지 않았을 때의 기본 URL 값
+                $oneSongUrl = "OneSongADay.php";
+            }
+
+            // "하루한곡" 링크 생성
+            echo '<li class="nav-item"><a href="' . $oneSongUrl . '" class="nav-link">하루한곡</a></li>';
+            ?>
+                <li class="nav-item"><a href="musicCategory.php" class="nav-link">음악 카테고리</a></li>
+                <li class="nav-item"><a href="communityProcess1.php" class="nav-link">커뮤니티</a></li>
+                <li class="nav-item"><a href="Settings.php" class="nav-link">설정</a></li>
             </ul>
             
         </nav>
