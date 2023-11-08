@@ -1,3 +1,4 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <?php
 $conn = mysqli_connect("localhost", "root", "mysqlP@ssword", "regist");
 

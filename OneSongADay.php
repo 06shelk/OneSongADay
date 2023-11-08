@@ -1,3 +1,8 @@
+<?php
+
+include 'OneSongADayProcess.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +22,21 @@
             </div>
 
             <ul class="nav-list">
-                <li class="nav-item"><a href="OneSongADay.php" class="nav-link">하루한곡</li>
+            <?php
+            
+
+            // 세션 변수에서 oneSongUrl 값 읽어오기
+            if (isset($_SESSION["oneSongUrl"])) {
+                $oneSongUrl = $_SESSION["oneSongUrl"];
+                
+            } else {
+                // 세션 변수가 설정되지 않았을 때의 기본 URL 값
+                $oneSongUrl = "OneSongADay.php";
+            }
+
+            // "하루한곡" 링크 생성
+            echo '<li class="nav-item"><a href="' . $oneSongUrl . '" class="nav-link">하루한곡</a></li>';
+            ?>
                 <li class="nav-item"><a href="musicCategory.php" class="nav-link">음악 카테고리</a></li>
                 <li class="nav-item"><a href="communityProcess1.php" class="nav-link">커뮤니티</a></li>
                 <li class="nav-item"><a href="Settings.php" class="nav-link">설정</a></li>
@@ -70,9 +89,5 @@
 <script src="js/nav.js"></script>
 <script src="js/test.js"></script>
 <script src="js/onesongaday.js"></script>
-<script>
-       
-    </script>
-
 </body>
 </html>
