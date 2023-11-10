@@ -24,6 +24,11 @@ if ($sort === 'latest') {
     $sql = "SELECT * FROM tb_board ORDER BY likes DESC LIMIT $offset, $records_per_page";
 }
 
+$username = $_SESSION['username'];
+
+// 현재 사용자의 게시물을 가져옴
+$sql = "SELECT * FROM tb_board WHERE memberID = '$username'";
+
 // tb_board에서 데이터 가져오기 (페이지네이션 적용)
 $result = $conn->query($sql);
 
