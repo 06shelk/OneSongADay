@@ -74,6 +74,7 @@ $result = $conn->query($sql);
             <?php
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
+                    $imagePath = $row['image'];
                     echo "<div class='board-item'>";
                         echo "<div class='pro'>";
                             echo "<div class='board-items'>";
@@ -92,7 +93,7 @@ $result = $conn->query($sql);
                         echo "</div>"; //cont
                         echo "<div class='CGood'>";
                             echo "<div class='songCover'>";
-                                echo "<i class='bi bi-plus-circle'></i>";
+                                echo "<img src='$imagePath' alt='게시물 이미지'>";
                             echo "</div>";
 
                             echo "<div class= 'Good'>";

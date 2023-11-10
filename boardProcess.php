@@ -8,20 +8,6 @@ include 'db_connection.php';
 
 session_start(); // 세션 시작
 
-$userid = $_POST['email'];
-$password = $_POST['password'];
-
-// 입력값이 비어있는지 확인
-if(empty($userid) || empty($password)) {
-    ?>
-    <script>
-        alert("로그인 시 이용 가능합니다.");
-        location.href = "login.php";
-    </script>
-    <?php
-    exit; // 입력값이 없으면 스크립트를 실행한 후 코드 실행 종료
-}
-
 // 파일 업로드 처리
 if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_OK) {
     $targetDir = "uploads/";
