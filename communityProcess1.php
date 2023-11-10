@@ -58,8 +58,8 @@ if (!$result) {
     var sortValue = match && decodeURIComponent(match[2].replace(/\+/g, ' '));
 
 
-        // DOM이 로드된 후에 실행되는 JavaScript 코드
-        document.addEventListener('DOMContentLoaded', function() {
+    // DOM이 로드된 후에 실행되는 JavaScript 코드
+    document.addEventListener('DOMContentLoaded', function() {
     // 페이지 번호의 클래스명이 'page-number'인 요소들을 가져와서 색상을 변경
     var pageNumbers = document.querySelectorAll('.page-number-selected');
     for (var i = 0; i < pageNumbers.length; i++) {
@@ -124,6 +124,8 @@ if (!$result) {
         lastestButton.style.color = '#c8c8c8';
         dropbtn.value = '인기순';
     }
+
+    
 });
 
 

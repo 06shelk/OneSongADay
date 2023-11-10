@@ -9,4 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'communityProcess1.php?sort=latest';
         }
     });
+
+
+    
 });

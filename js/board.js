@@ -18,8 +18,3 @@ fileInput.addEventListener('change', () => {
         songCoverImage.src = URL.createObjectURL(selectedFile); // Update the image source
     }
 });
-
-// 이미지를 추가했을 때 아이콘을 숨김
-fileInput.addEventListener('change', function () {
-    eyedropperIcon.style.display = 'none';
-});

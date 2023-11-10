@@ -76,17 +76,16 @@ body {
 
 /* page 표시 영역 */
 .page {
+    margin: 0 auto; 
+    width: calc(100% - 100px * 2);
+    max-width: 300px;
+    border: 1px solid red;
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
-/* page 표시  */
-.page ul li {
-    float: left;
-    margin: 10px;
-    color: var(--first-color);
-}
+
 
 /* page 버튼  */
 .page button {
@@ -185,13 +184,6 @@ body {
 }
 
 
-.page {
-    margin: 0 auto;
-    padding: 20px 0;
-    width: 100px;
-    height: 60px;
-    line-height: 60px;
-}
 
 .postBtn {
     display: flex;
