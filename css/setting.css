@@ -13,7 +13,7 @@ body {
 
 .title-container {
     margin-bottom: 70px;
-    font-size: 1.25rem;;
+    font-size: var(--h3-font-size);
 }
 
 main {
@@ -23,7 +23,6 @@ main {
 }
 
 .profilecontainer {
-    border: 1px solid rgb(219, 0, 0);
     margin-left: 250px;
 }
 
@@ -41,7 +40,7 @@ main {
 .userProfile {
     width: 350px;
     height: 350px;
-    border: 1px solid rgb(157, 255, 0);
+    border: 1px solid var(--first-color);
     display: flex;
     align-items: center;
     justify-content: center;

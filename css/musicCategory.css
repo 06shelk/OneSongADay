@@ -3,6 +3,12 @@ body {
     color: #fff;
 }
 
+main {
+    margin: 0 auto;
+    margin-top: calc(44px + 100px);
+    width: calc(100% - 50px * 2);  
+}
+
 
 .division-container,
 .title-container{
@@ -10,7 +16,6 @@ body {
     justify-content:space-around;
     margin-top: 60px;
     color: var(--first-color);
-    border: 1px solid rgb(174, 54, 54);
 }
 
 .column-container {
@@ -20,6 +25,10 @@ body {
     display: flex;
     flex-direction: column; 
     margin: 0 auto;  
+}
+
+.column-container:last-child {
+    margin-bottom: 10px;
 }
 
 .items-container {
@@ -33,11 +42,9 @@ body {
     width: 240px;
     height: 150px;
     margin-top: 10px;
-    border: 1px solid rgb(174, 54, 54);
 }
 
 .CategoryCover img {
-    border: 1px solid rgb(119, 8, 255);
     width: 240px;
     height: 240px;
     overflow: hidden;
@@ -45,7 +52,6 @@ body {
 }
 
 .CategoryTitle {
-    border: 1px solid rgb(174, 54, 54);
     width: 240px;
     height: 25px;
     color: #fff;
