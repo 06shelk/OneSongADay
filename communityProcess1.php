@@ -16,6 +16,11 @@ date_default_timezone_set('Asia/Seoul'); // 한국 표준시로 설정
 $records_per_page = 9;
 $offset = ($page - 1) * $records_per_page;
 
+$tb_username = $_SESSION['username'];
+
+// 사용자의 게시물을 가져옴
+$sql = "SELECT * FROM tb_board";
+
 // 정렬 방식을 확인하고 SQL 쿼리에 반영
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'latest';
 if ($sort === 'latest') {
@@ -23,11 +28,6 @@ if ($sort === 'latest') {
 } else if ($sort === 'popular') {
     $sql = "SELECT * FROM tb_board ORDER BY likes DESC LIMIT $offset, $records_per_page";
 }
-
-$username = $_SESSION['username'];
-
-// 현재 사용자의 게시물을 가져옴
-$sql = "SELECT * FROM tb_board WHERE memberID = '$username'";
 
 // tb_board에서 데이터 가져오기 (페이지네이션 적용)
 $result = $conn->query($sql);
@@ -63,8 +63,8 @@ if (!$result) {
     var sortValue = match && decodeURIComponent(match[2].replace(/\+/g, ' '));
 
 
-    // DOM이 로드된 후에 실행되는 JavaScript 코드
-    document.addEventListener('DOMContentLoaded', function() {
+        // DOM이 로드된 후에 실행되는 JavaScript 코드
+        document.addEventListener('DOMContentLoaded', function() {
     // 페이지 번호의 클래스명이 'page-number'인 요소들을 가져와서 색상을 변경
     var pageNumbers = document.querySelectorAll('.page-number-selected');
     for (var i = 0; i < pageNumbers.length; i++) {
@@ -129,8 +129,6 @@ if (!$result) {
         lastestButton.style.color = '#c8c8c8';
         dropbtn.value = '인기순';
     }
-
-    
 });
 
 
