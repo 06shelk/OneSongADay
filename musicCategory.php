@@ -1,12 +1,24 @@
-<?php 
-    include 'db_connection.php';
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<?php
+
+include 'db_connection.php';
+// 세션 시작
+session_start();
+
+// 세션 변수가 설정되어 있지 않은 경우 로그인 페이지로 리디렉션
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>하루 한 곡</title> 
+    <title>Onedayasong</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/nav.css">
@@ -22,7 +34,7 @@
 
             <ul class="nav-list">
             <?php
-            session_start(); // 세션 시작
+            
 
             // 세션 변수에서 oneSongUrl 값 읽어오기
             if (isset($_SESSION["oneSongUrl"])) {
@@ -44,13 +56,14 @@
         </nav>
     </header>
 
+    <main id="musicCategory">
 
-    <main class="musicCategory">
         <div class="title-container">
             <div class="MusicCategory">
                 <h1>음악 카테고리</h1>
             </div>
         </div>
+
         
         <div class="columns-container">
             <div class="division-container"> <!--구분하기-->

@@ -18,9 +18,11 @@ if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_O
         // 파일 업로드 성공 시 데이터베이스에 정보 삽입
         $imagePath = mysqli_real_escape_string($conn, $targetFile);
 
+        $tb_username = $_SESSION['username'];
+
         // 게시글 삽입 쿼리
         $sql = "INSERT INTO tb_board(memberID, title, content, image)
-                VALUES('{$username}', '{$_POST['boardTitle']}', '{$_POST['boardCont']}', '$imagePath')";
+                VALUES('{$tb_username}', '{$_POST['boardTitle']}', '{$_POST['boardCont']}', '$imagePath')";
 
         $result = mysqli_query($conn, $sql);
 
@@ -44,7 +46,7 @@ if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_O
         ?>
         <script>
             alert("파일 업로드에 실패했습니다.");
-            //location.href = "boardProcess.php";
+            location.href = "communityProcess1.php";
         </script>
         <?php
     }
@@ -52,7 +54,7 @@ if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_O
     ?>
     <script>
         alert("파일 업로드에 실패했습니다.");
-        //location.href = "boardProcess.php";
+        location.href = "communityProcess1.php";
     </script>
     <?php
 }

@@ -1,4 +1,7 @@
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <?php
+
+include 'db_connection.php';
 // 세션 시작
 session_start();
 
@@ -69,7 +72,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                 </form>
                 
                 <div class="userProfile">
-                    <img id="profileImage" img src="userImg/basicPro.jpg'" alt="이미지" onerror="this.src='userImg/basicPro.jpg'">
+                    <!-- <img id='profileImage' src="<?php echo $_SESSION['userProfileImage']; ?>" alt='사용자 이미지' > -->
                 </div>
             </div>
 
@@ -95,36 +98,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
             </div>
         </div>
 
-        <div class="columns-container">
-            <div class="division-container">
-                <div class="musicByDate"><h3>좋아요한 음악</h3></div>
-                <button div class="plus"><h5>더보기 +</h5>
-            </div>
-        </div>
-            
-        <div class="column-container">
-            <div class="items-container">
-                <div class="CategoryCover">
-                    <img src="images/악몽.jpg" alt="">
-                </div>
-                <div class="CategoryCover">
-                    <img src="images/악몽.jpg" alt="">
-                </div>
-                <div class="CategoryCover">
-                    <img src="images/악몽.jpg" alt="">
-                </div>
-                <div class="CategoryCover">
-                    <img src="images/악몽.jpg" alt="">
-                </div>
-            </div>
-            <div class="items-container">
-                <div class="CategoryTitle">악몽</div>
-                <div class="CategoryTitle">악몽</div>
-                <div class="CategoryTitle">악몽</div>
-                <div class="CategoryTitle">악몽</div>
-            </div>
-        </div>
-    </main>
+        
 
         <div class="userComs">
         </div>
