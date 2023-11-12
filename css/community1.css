@@ -81,12 +81,14 @@ body {
     max-width: 300px;
     border: 1px solid red;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-
+.page a {
+    padding-left: 15px;
+}
 
 /* page 버튼  */
 .page button {
