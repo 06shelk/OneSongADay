@@ -45,7 +45,7 @@
 - 메인화면 page : 
 하루한곡 웹사이트에 대한 전반적인 이미지를 보여줄 수 있습니다.
 
-<img src="images/mdImg/figma1.PNG" width="600">
+<img src="images/mdImg/figma1.png" width="600">
 - 하루한곡 page :
  - 하루한곡 :
 	- 하루마다 하나씩 다양한 장르와 년도의 음악을 추천할 수 있습니다. 
