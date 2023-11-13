@@ -49,8 +49,8 @@
 <img src="images/mdImg/figma1.png" width="600">
 
 - 하루한곡 page
-  - 하루마다 하나씩 다양한 장르와 년도의 음악을 추천할 수 있습니다. 
-	- 하루한곡에서 추천한 곡들을 모아 playlist를 만들어 보여줍니다.
+  - 하루마다 하나씩 다양한 장르와 년도의 음악을 추천할 수 있습니다.
+  - 하루한곡에서 추천한 곡들을 모아 playlist를 만들어 보여줍니다.
 
 <img src="images/mdImg/figma2.png" width="600">
 
