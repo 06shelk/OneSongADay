@@ -41,18 +41,18 @@
 
 ## 특징
 
-<img src="images/mdImg/figma0.PNG" width="600">
+<img src="images/mdImg/figma0.png" width="600">
 
 - 메인화면 page 
   - 하루한곡 웹사이트에 대한 전반적인 이미지를 보여줄 수 있습니다.
 
-<img src="images/mdImg/figma1.PNG" width="600">
+<img src="images/mdImg/figma1.png" width="600">
 
 - 하루한곡 page
   - 하루마다 하나씩 다양한 장르와 년도의 음악을 추천할 수 있습니다. 
 	- 하루한곡에서 추천한 곡들을 모아 playlist를 만들어 보여줍니다.
 
-<img src="images/mdImg/figma2.PNG" width="600">
+<img src="images/mdImg/figma2.png" width="600">
 
 - 음악 카테고리 page
   - 웹사이트에 저장된 음악을 한번에 볼 수 있는 페이지입니다.
@@ -60,7 +60,7 @@
  2. 연도별 추천 (70년대, 80년대, … 00년대, 20년대 등)
  3. 새로운 아티스트와 음악 (대중적으로 잘 알려지지 않은 아티스트의 음악) 
 
-<img src="images/mdImg/figma3.PNG" width="600">
+<img src="images/mdImg/figma3.png" width="600">
 
 - 커뮤니티  
 	- 사용자들이 좋아하는 음악을 공유할 수 있습니다.
