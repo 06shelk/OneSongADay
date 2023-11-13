@@ -154,6 +154,7 @@ $(document).ready(function() {
         }
     });
 
+    //playlist 노래 찾기
     listSongTitle.addEventListener("click", function(event) {
         if (event.target.classList.contains("listSongTitle")) {
             // 클릭된 요소가 listSongTitle 클래스를 가지고 있는 경우에만 처리를 수행합니다.

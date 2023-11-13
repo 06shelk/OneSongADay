@@ -81,7 +81,6 @@ body {
         transition: 0.4s;
         z-index: 999;
         width: 380px;
-        border: 1px solid red;
     }
 
     .nav-container a {

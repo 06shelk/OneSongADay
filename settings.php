@@ -67,12 +67,12 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
         <div class="image-info-groups container">
             <div class="profilecontainer">
                 <div class="userPhoto">계정 사진 <i class="bi bi-eyedropper"></i></div>
-                <form action="settingsProcess.php" method="post" enctype="multipart/form-data">
+                
                     <input type="file" id="fileInput" style="display: none;">
-                </form>
+                
                 
                 <div class="userProfile">
-                    <!-- <img id='profileImage' src="<?php echo $_SESSION['userProfileImage']; ?>" alt='사용자 이미지' > -->
+                    <img id='profileImage' alt='사용자 이미지' >
                 </div>
             </div>
 
