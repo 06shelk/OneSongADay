@@ -9,11 +9,11 @@ main {
     width: calc(100% - 50px * 2);  
 }
 
+/*아티스트 정보*/
 .Artist {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
-    color: var(--first-color);
     margin-bottom: 100px;
 }
 
@@ -22,19 +22,26 @@ main {
     margin-left: 300px;
 }
 
+/*가수*/
 .userPhoto {
     justify-content: center;
     text-align: center;
     font-size: 30px;
-    color: var(--first-color);
 }
 
 .container {
     display: flex;
 }
 
+/*가수 프로필*/
 .userProfile {
     width: 350px;
+}
+
+.userProfile img {
+    width: 350px;
+    height: 330px;
+    object-fit: cover;
 }
 
 .info-group.container{
@@ -69,6 +76,7 @@ main {
     display: flex;
     flex-direction: column; 
     margin: 0 auto;  
+    margin-bottom: 100px;
 }
 
 .singer {
@@ -85,15 +93,18 @@ main {
 .CategoryCover {
     width: 200px;
     height: 140px;
+    object-fit: cover;
     margin-top: 10px;
 }
 
 .CategoryTitle {
-    
+   
     width: 200px;
     font-size: 20px;
     margin-top: 70px;
     text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .title,
@@ -117,9 +128,9 @@ main {
     text-align: left;
     margin-left: 142px;
     margin-top: 60px;
+    border: 0;
     background-color: transparent;  /*내부 투명하게*/
     color: var(--first-color);
-    border: 0;
 }
 
 @media screen and (max-width: 1200px) {
@@ -135,6 +146,11 @@ main {
 
     .userProfile {
         width: 300px;
+    }
+    
+    .userProfile img{
+        width: 300px;
+        height: 280px;
     }    
 
     .column-container {
@@ -146,7 +162,7 @@ main {
     }
 
     .CategoryTitle {
-        
+       
         margin-top: 40px;
         width: 170px;
     }
@@ -167,13 +183,18 @@ main {
         width: 250px;
     }    
 
+    .userProfile img{
+        width: 250px;
+        height: 230px;
+    } 
+
     .info-group {
         font-size: 1.5rem;
     }
 
     .column-container {
         height: 200px;
-       
+        border: 1px solid rgb(255, 255, 255);
     }
 
     .CategoryCover {
@@ -216,13 +237,18 @@ main {
         width: 230px;
     }    
 
+    .userProfile img {
+        width: 230px;
+        height: 210px;
+    }  
+
     .info-group {
         margin-top: 40px;
     }
 
     .column-container {
         height: 170px;
-      
+        border: 1px solid rgb(255, 255, 255);
     }
 
     .CategoryCover {
@@ -246,7 +272,11 @@ main {
 @media screen and (max-width: 720px) {
 
     .userProfile {
-        width: 190px;
+        width: 210px;
+    }
+
+    .userProfile img{
+        height: 190px;
     }
 
     .info-group.container:first-child{
@@ -255,7 +285,7 @@ main {
 
     .column-container {
         height: 140px;
-       
+        border: 1px solid rgb(255, 255, 255);
     }
 
     .CategoryCover {
@@ -264,7 +294,7 @@ main {
     }
 
     .CategoryTitle {
-       
+        
         width: 100px;
         font-size: 13px;
     }
@@ -280,7 +310,7 @@ main {
     .image-info-groups {
         display: flex;
         flex-direction: column;
-      
+        border: 1px solid rgb(255, 255, 255);
     }
 
     .profilecontainer {
@@ -295,6 +325,11 @@ main {
     .userProfile {
         width:300px;
     }    
+
+    .userProfile img{
+        width: 300px;
+        height: 280px;
+    }
 
     .info-group {
         margin-left: 0px;
@@ -315,7 +350,7 @@ main {
         height: 180px;
         width: 385px;
         margin-bottom: 20px;
-      
+        border: 1px solid rgb(255, 255, 255);
     }
 
     .column-container:last-child{
@@ -337,7 +372,6 @@ main {
     }
 
     .CategoryTitle {
-       
         width: 130px;
         font-size: 15px;
     }
