@@ -23,6 +23,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/setting.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <header>
@@ -66,14 +67,55 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
 
         <div class="image-info-groups container">
             <div class="profilecontainer">
-                <div class="userPhoto">계정 사진 <i class="bi bi-eyedropper"></i></div>
-                
-                    <input type="file" id="fileInput" style="display: none;">
-                
-                
-                <div class="userProfile">
-                    <img id='profileImage' alt='사용자 이미지' >
-                </div>
+            <div class="userPhoto">계정 사진 <i class="bi bi-eyedropper"></i></div>
+                <!-- form 요소에 id를 추가합니다. -->
+            <form id="fileUploadForm" enctype="multipart/form-data">
+                <input type="file" name="imgFile" id="fileInput" style="display: none;">
+                <input type="button" value="업로드" onclick="uploadFile()" class="svaubmit"/>
+            </form>
+
+            <!-- 이미지를 표시할 곳을 마련합니다. -->
+            <div id="uploadedImageContainer">
+            <?php
+                // 세션에 저장된 이미지 경로를 확인
+                $userImage = isset($_SESSION['uploaded_image']) ? $_SESSION['uploaded_image'] : '';
+
+                // 이미지가 존재하는 경우에만 이미지를 표시합니다.
+                if (!empty($userImage)) {
+                    // 이미지 URL에 랜덤 파라미터를 추가하여 이미지를 강제로 새로고침합니다.
+                    $timestamp = time();
+                    echo "<img src='$userImage?$timestamp' width='100' alt='User Image'>";
+                } else {
+                    // 사용자가 이미지를 업로드하지 않은 경우에는 기본 이미지를 표시합니다.
+                    echo "<img src='userImg/basicPro.jpg' width='100' alt='Default Image'>";
+                }
+                ?>
+            </div>
+
+            <script>
+            function uploadFile() {
+                // FormData 객체를 생성합니다.
+                var formData = new FormData(document.getElementById('fileUploadForm'));
+
+                // AJAX를 사용하여 파일을 업로드합니다.
+                $.ajax({
+                    type: 'POST',
+                    url: 'fileUploadResult.php',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        // 업로드된 이미지를 표시합니다.
+                        $('#uploadedImageContainer').html(response);
+                    },
+                    error: function(error) {
+                        console.log('Error:', error);
+                    }
+                });
+            }
+            </script>
+
+
             </div>
 
             <div class="info-groups container">
@@ -93,9 +135,9 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                         <div class="itme tS">
                            
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </div><!-- info container -->
+                </div><!-- info-group container -->
+            </div><!-- info-groups container -->
         </div>
 
         

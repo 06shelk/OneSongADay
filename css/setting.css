@@ -13,7 +13,7 @@ body {
 
 .title-container {
     margin-bottom: 70px;
-    font-size: var(--h3-font-size);
+    font-size: 1.25rem;;
 }
 
 main {
@@ -23,6 +23,7 @@ main {
 }
 
 .profilecontainer {
+    border: 1px solid rgb(219, 0, 0);
     margin-left: 250px;
 }
 
@@ -37,16 +38,16 @@ main {
     display: flex;
 }
 
-.userProfile {
+#uploadedImageContainer {
     width: 350px;
     height: 350px;
-    border: 1px solid var(--first-color);
+    border: 3px solid rgb(157, 255, 0);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.userProfile img {
+#uploadedImageContainer img {
     width: 100%;    /*작은 이미지를 늘리기 위한 빌드*/
     height: 100%;
 }
@@ -90,6 +91,20 @@ main {
     justify-content: space-around;
     color: var(--first-color);
 }
+
+.sudmit-container {
+    display: flex;
+    border: 3px solid #f21717;
+    justify-content: flex-end;
+}
+
+.submit {
+    justify-content: flex-end;
+    align-items: flex-end; /* 수정된 부분 */
+    text-align: right;
+    border: 3px solid #17a9f2;
+}
+
 
 .CategoryCover {
     width: 200px;
