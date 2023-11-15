@@ -76,21 +76,23 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
 
             <!-- 이미지를 표시할 곳을 마련합니다. -->
             <div id="uploadedImageContainer">
-            <?php
-                // 세션에 저장된 이미지 경로를 확인
-                $userImage = isset($_SESSION['uploaded_image']) ? $_SESSION['uploaded_image'] : '';
+                <?php
+                    // 세션에 저장된 이미지 경로를 확인
+                    $userImage = isset($_SESSION['userImage']) ? $_SESSION['userImage'] : '';
 
-                // 이미지가 존재하는 경우에만 이미지를 표시합니다.
-                if (!empty($userImage)) {
-                    // 이미지 URL에 랜덤 파라미터를 추가하여 이미지를 강제로 새로고침합니다.
-                    $timestamp = time();
-                    echo "<img src='$userImage?$timestamp' width='100' alt='User Image'>";
-                } else {
-                    // 사용자가 이미지를 업로드하지 않은 경우에는 기본 이미지를 표시합니다.
-                    echo "<img src='userImg/basicPro.jpg' width='100' alt='Default Image'>";
-                }
+                    // 이미지가 존재하는 경우에만 이미지를 표시합니다.
+                    if (!empty($userImage)) {
+                        // 이미지 URL에 랜덤 파라미터를 추가하여 이미지를 강제로 새로고침합니다.
+                        $timestamp = time();
+                        echo "<img src='$userImage?$timestamp' width='100' alt='User Image'>";
+                    } else {
+                        // 사용자가 이미지를 업로드하지 않은 경우에는 기본 이미지를 표시합니다.
+                        echo "<img src='userImg/basicPro.jpg' width='100' alt='Default Image'>";
+                    }
                 ?>
             </div>
+
+
 
             <script>
             function uploadFile() {
@@ -114,6 +116,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                 });
             }
             </script>
+
+
 
 
             </div>

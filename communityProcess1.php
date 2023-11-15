@@ -118,15 +118,15 @@ if (!$result) {
     var dropbtn = document.querySelector('.dropbtn');
     // sortValue에 "sort=latest" 매개변수 값이 저장됩니다. 이 값을 출력해보세요.
     if (sortValue == "latest") {
-        popularButton.style.color = '#c8c8c8';
-        lastestButton.style.color = '#ffffff';
+        popularButton.style.color = '#ffffff';
+        lastestButton.style.color = '#c8c8c8';
         dropbtn.value = '최근일자';
     }
 
     // sortValue에 "sort=latest" 매개변수 값이 저장됩니다. 이 값을 출력해보세요.
     if (sortValue == "popular") {
-        popularButton.style.color = '#ffffff';
-        lastestButton.style.color = '#c8c8c8';
+        popularButton.style.color = '#c8c8c8';
+        lastestButton.style.color = '#ffffff';
         dropbtn.value = '인기순';
     }
 });
