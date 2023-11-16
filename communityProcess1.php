@@ -17,6 +17,7 @@ $records_per_page = 9;
 $offset = ($page - 1) * $records_per_page;
 
 $tb_username = $_SESSION['username'];
+$tb_userimage = $_SESSION['userImage'];
 
 // 사용자의 게시물을 가져옴
 $sql = "SELECT * FROM tb_board";
@@ -220,7 +221,7 @@ if (!$result) {
                     echo "<a href='board_view1.php?boardID=" . $row["boardID"] . "'>";
                     echo "<div class='pro'>";
                     echo "<div class='board-item'>";
-                    echo "<div class='image'><img id='profileImage' img src='userImg/basicPro.jpg'' alt='이미지' onerror='this.src='userImg/basicPro.jpg''></div>";
+                    echo "<div class='image'><img id='profileImage' src='" . $row['userimage'] . "' alt='이미지' onerror=\"this.src='userImg/basicPro.jpg'\"></div>";
                     echo "</div>";
                     echo "<div class='board-hu'>";
                     echo "<div class='board-item'>";

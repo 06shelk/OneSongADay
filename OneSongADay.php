@@ -56,8 +56,10 @@ include 'OneSongADayProcess.php';
                     <div class="osodCover">
                         <img src="" alt="">
                     </div>
-                    <div class="osodSongTitle">아지랑이</div>
+
                     <div class="osodSinger">루시</div>
+                    <div class="osodSongTitle">아지랑이</div>
+                    
 
                     <div class="todaysong-setting">
                         <div class="osodLeft"><i class="bi bi-eject-fill"></i></div>

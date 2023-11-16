@@ -130,6 +130,19 @@ button {
     font-size: var(--h1-font-size);
 }
 
+#uploadedImageContainer {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#uploadedImageContainer img {
+    width: 100%;    /*작은 이미지를 늘리기 위한 빌드*/
+    height: 100%;
+}
+
 @media screen and (max-width: 1200px) {
 
     .profilecontainer {
@@ -168,6 +181,14 @@ button {
 
     button {
         margin-left: 500px;
+    }
+
+    #uploadedImageContainer {
+        width: 250px;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -304,6 +325,14 @@ button {
     button {
         margin-left: 210px;
     }
+
+    #uploadedImageContainer {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* mobile */
@@ -373,4 +402,14 @@ button {
     button {
         margin-left: 220px;
     }
+
+
+    #uploadedImageContainer {
+        width: 140px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
 }

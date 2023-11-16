@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/setting.css">
+    <link rel="stylesheet" href="css/settings.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                 <!-- form 요소에 id를 추가합니다. -->
             <form id="fileUploadForm" enctype="multipart/form-data">
                 <input type="file" name="imgFile" id="fileInput" style="display: none;">
-                <input type="button" value="업로드" onclick="uploadFile()" class="svaubmit"/>
+                <input type="button" value="업로드" onclick="uploadFile()" class="svaubmit" style="display: none;"/>
             </form>
 
             <!-- 이미지를 표시할 곳을 마련합니다. -->
@@ -79,6 +79,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                 <?php
                     // 세션에 저장된 이미지 경로를 확인
                     $userImage = isset($_SESSION['userImage']) ? $_SESSION['userImage'] : '';
+
 
                     // 이미지가 존재하는 경우에만 이미지를 표시합니다.
                     if (!empty($userImage)) {
@@ -91,14 +92,15 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
                     }
                 ?>
             </div>
-
+           
 
 
             <script>
             function uploadFile() {
                 // FormData 객체를 생성합니다.
+                const submitBtn = document.querySelector('.svaubmit');
                 var formData = new FormData(document.getElementById('fileUploadForm'));
-
+                submitBtn.style.display = 'none';
                 // AJAX를 사용하여 파일을 업로드합니다.
                 $.ajax({
                     type: 'POST',

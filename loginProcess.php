@@ -3,6 +3,9 @@
 // db_connection.php 파일을 불러와서 연결 설정
 include 'db_connection.php';
 
+// 세션 쿠키 수명을 24시간으로 설정
+ini_set('session.cookie_lifetime', 24 * 60 * 60);
+
 session_start(); // 세션 시작
 
 $userid = $_POST['email'];
@@ -30,30 +33,54 @@ if ($result && $result->num_rows > 0) {
     $userImage = $userRow['userimage']; // 사용자 이미지 경로를 가져옴
     $_SESSION['userImage'] = $userImage;
 
-
     $_SESSION['user_id'] = $userid; // 사용자 ID를 세션 변수에 저장
     $_SESSION['username'] = $username; // username을 세션 변수에 저장
 
     // 사용자가 이미 들은 노래 목록을 세션에서 가져오기
     $loadedSongs = isset($_SESSION['loaded_songs']) ? $_SESSION['loaded_songs'] : array();
 
-    do {
-        // 중복이 없을 때까지 랜덤한 ID 생성
-        $randomId = mt_rand(1, 12);
-    } while (in_array($randomId, $loadedSongs));
+    // 현재 날짜의 자정(KST)의 Unix 타임스탬프를 가져오기
+    $midnightKST = strtotime('today midnight') + 9 * 60 * 60; // UTC+9
 
-    // 추천한 노래를 세션에 추가
-    $loadedSongs[] = $randomId;
-    $_SESSION['loaded_songs'] = $loadedSongs;
+    // 현재 시간과 마지막 추천 시간을 가져오기 (UTC+9)
+    $currentTime = time() + 9 * 60 * 60; // UTC+9
+    $lastRecommendationTime = isset($_SESSION['last_recommendation_time']) ? $_SESSION['last_recommendation_time'] : 0;
 
-    ?>
-    <script>
-        alert("로그인 완료되었습니다");
-        // PHP에서 생성한 $randomId를 JavaScript로 전달
-        var randomId = <?php echo $randomId; ?>;
-        window.location.href = "onesongaday.php?id=" + randomId;
-    </script>
-    <?php
+    // 로그인 완료시 세션 변수 초기화
+    $_SESSION['loaded_songs'] = array();
+    $_SESSION['last_recommendation_time'] = 0;
+
+    if ($currentTime >= $midnightKST && $lastRecommendationTime < $midnightKST) {
+        do {
+            // 중복이 없을 때까지 랜덤한 ID 생성
+            $randomId = mt_rand(1, 12);
+        } while (in_array($randomId, $loadedSongs));
+
+        // 추천한 노래를 세션에 추가
+        $loadedSongs[] = $randomId;
+        $_SESSION['loaded_songs'] = $loadedSongs;
+
+        // 마지막 추천 시간 업데이트 (UTC+9)
+        $_SESSION['last_recommendation_time'] = $currentTime;
+
+        ?>
+        <script>
+            alert("로그인 완료되었습니다. 새로운 노래를 추천합니다!");
+            // PHP에서 생성한 $randomId를 JavaScript로 전달
+            var randomId = <?php echo $randomId; ?>;
+            window.location.href = "onesongaday.php?id=" + randomId;
+        </script>
+        <?php
+    } else {
+        ?>
+        <script>
+            alert("로그인 완료되었습니다. 하루에 한 번만 노래를 추천합니다.");
+            // 마지막으로 추천받은 노래로 리다이렉트
+            var lastRecommendedId = <?php echo end($loadedSongs); ?>;
+            window.location.href = "onesongaday.php?id=" + lastRecommendedId;
+        </script>
+        <?php
+    }
 } else {
     // 인증 실패 - 사용자가 존재하지 않거나 비밀번호가 틀린 경우
     ?>
@@ -64,3 +91,4 @@ if ($result && $result->num_rows > 0) {
     <?php
 }
 ?>
+

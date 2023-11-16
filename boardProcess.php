@@ -19,10 +19,11 @@ if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_O
         $imagePath = mysqli_real_escape_string($conn, $targetFile);
 
         $tb_username = $_SESSION['username'];
+        $tb_userImage = $_SESSION['userImage'];
 
         // 게시글 삽입 쿼리
-        $sql = "INSERT INTO tb_board(memberID, title, content, image)
-                VALUES('{$tb_username}', '{$_POST['boardTitle']}', '{$_POST['boardCont']}', '$imagePath')";
+        $sql = "INSERT INTO tb_board(memberID, title, content, image, userimage)
+                VALUES('{$tb_username}', '{$_POST['boardTitle']}', '{$_POST['boardCont']}', '$imagePath', '{$tb_userImage}')";
 
         $result = mysqli_query($conn, $sql);
 

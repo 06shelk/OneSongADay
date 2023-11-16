@@ -8,5 +8,4 @@
     //onesongaday.php?id=숫자 이거 저장
     $_SESSION["oneSongUrl"] = $_SERVER['REQUEST_URI'];
 
-    
 ?>

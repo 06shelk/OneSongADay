@@ -51,6 +51,11 @@ body {
 }
 
 .osodSongTitle {
+    font-size: var(--h1-font-size);
+}
+
+
+.osodSinger {
     font-size: var(--h2-font-size);
 }
 

@@ -33,6 +33,5 @@
         </form><!-- signin-form 끝 -->
     </main>
     
-    <script src="js/nav.js"></script>
 </body>
 </html>

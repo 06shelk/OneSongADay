@@ -75,10 +75,25 @@ $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $imagePath = $row['image'];
+                    $username = $row['memberID'];
+
+                    // 사용자 테이블에서 해당 사용자의 이미지를 가져옵니다.
+                    $userImageQuery = "SELECT userimage FROM tb_user WHERE userid = '$username'";
+                    $userImageResult = $conn->query($userImageQuery);
+
+                    if ($userImageResult->num_rows > 0) {
+                        $userImageRow = $userImageResult->fetch_assoc();
+                        $userImagePath = $userImageRow['userimage'];
+                    } else {
+                        // 사용자 이미지가 없을 경우 기본 이미지 경로를 설정합니다.
+                        $userImagePath = 'userImg/basicPro.jpg';
+                    }
+
                     echo "<div class='board-item'>";
                         echo "<div class='pro'>";
                             echo "<div class='board-items'>";
-                                echo "<div class='image'></div>"; // 이미지 표시
+                            echo "<div class='image' style='background-image: url(\"" . $_SESSION['userImage'] . "\"); background-size: cover;'></div>";
+
                             echo "</div>";
                             echo "<div class='board-items'>";
                                 echo "<div class='name'>" . $row['memberID'] . "</div>"; // 사용자 이름 표시 

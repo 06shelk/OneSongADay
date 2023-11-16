@@ -2,9 +2,11 @@
 const fileInput = document.getElementById('fileInput');
 const eyedropperIcon = document.querySelector('.bi-eyedropper');
 const userProfileImage = document.getElementById('profileImage');
+const submitBtn = document.querySelector('.svaubmit');
 
 // 아이콘 클릭 시 파일 업로드 엘리먼트 클릭 이벤트 발생
 eyedropperIcon.addEventListener('click', () => {
+    submitBtn.style.display = 'block';
     fileInput.click();
 });
 
