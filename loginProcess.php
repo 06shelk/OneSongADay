@@ -27,6 +27,9 @@ if ($result && $result->num_rows > 0) {
     // 인증 성공 - 사용자가 존재하는 경우
     $userRow = $result->fetch_assoc();
     $username = $userRow['username']; // 해당 사용자의 username 값을 가져옴
+    $userImage = $userRow['userimage']; // 사용자 이미지 경로를 가져옴
+    $_SESSION['userImage'] = $userImage;
+
 
     $_SESSION['user_id'] = $userid; // 사용자 ID를 세션 변수에 저장
     $_SESSION['username'] = $username; // username을 세션 변수에 저장
