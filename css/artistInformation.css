@@ -123,6 +123,7 @@ main {
     margin-top: 15px;
 }
 
+
 .musicByDate {
     width: 115px;
     text-align: left;
@@ -131,6 +132,8 @@ main {
     border: 0;
     background-color: transparent;  /*내부 투명하게*/
     color: var(--first-color);
+    font-family: var(--body-font);
+    
 }
 
 @media screen and (max-width: 1200px) {

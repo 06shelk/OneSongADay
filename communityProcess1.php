@@ -177,9 +177,9 @@ if (!$result) {
                 <a href="board.php"><div class="postBtn">게시하기</div></a>
                 <div class="pl">
                     <div class="pl1">
-                        <button class="popular" style="color: #c8c8c8;">최근일자</button>
+                        <button class="popular" style="color: #c8c8c8; font-family: var(--body-font);">최근일자</button>
                         <div class="l">|</div>
-                        <button class="lastest">인기순</button>
+                        <button class="lastest"  style="font-family: var(--body-font);">인기순</button>
                     </div><!-- pl1 끝 -->
                     <div class="pl2">
                         <div class="dropdown">
@@ -268,5 +268,6 @@ if (!$result) {
         ?>
     </div><!-- page 끝 -->
     <script src="js/nav.js"></script>
+
 </body>
 </html>

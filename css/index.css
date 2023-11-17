@@ -16,6 +16,7 @@ body {
 .mainBtn{
     color: var(--first-color);
     margin: 5px;
+    
 }
 
 .mainTitle {
@@ -27,6 +28,7 @@ body {
     margin: 15px;
     padding: 10px 30px; /*간격 넓히기*/
     border-color: var(--first-color);
+    font-family: var(--body-font);
 }
 
 /* tablet */

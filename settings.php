@@ -41,6 +41,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
             if (isset($_SESSION["oneSongUrl"])) {
                 $oneSongUrl = $_SESSION["oneSongUrl"];
                 
+                
             } else {
                 // 세션 변수가 설정되지 않았을 때의 기본 URL 값
                 $oneSongUrl = "OneSongADay.php";
@@ -78,14 +79,14 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
             <div id="uploadedImageContainer">
                 <?php
                     // 세션에 저장된 이미지 경로를 확인
-                    $userImage = isset($_SESSION['userImage']) ? $_SESSION['userImage'] : '';
+                    $userimage = isset($_SESSION['userimage']) ? $_SESSION['userimage'] : '';
 
 
                     // 이미지가 존재하는 경우에만 이미지를 표시합니다.
-                    if (!empty($userImage)) {
+                    if (!empty($userimage)) {
                         // 이미지 URL에 랜덤 파라미터를 추가하여 이미지를 강제로 새로고침합니다.
                         $timestamp = time();
-                        echo "<img src='$userImage?$timestamp' width='100' alt='User Image'>";
+                        echo "<img src='$userimage?$timestamp' width='100' alt='User Image'>";
                     } else {
                         // 사용자가 이미지를 업로드하지 않은 경우에는 기본 이미지를 표시합니다.
                         echo "<img src='userImg/basicPro.jpg' width='100' alt='Default Image'>";

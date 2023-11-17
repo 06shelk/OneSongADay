@@ -27,10 +27,11 @@ if ($result && $result->num_rows > 0) {
     // 인증 성공 - 사용자가 존재하는 경우
     $userRow = $result->fetch_assoc();
     $username = $userRow['username']; // 해당 사용자의 username 값을 가져옴
+    $userimage = $userRow['userimage'];
 
     $_SESSION['user_id'] = $userid; // 사용자 ID를 세션 변수에 저장
     $_SESSION['username'] = $username; // username을 세션 변수에 저장
-    $_SESSION['userImage'] = $userImage;
+    $_SESSION['userimage'] = $userimage;
     
     // 추가된 부분: last_login_time, last_recommended_id 가져오기
     $lastLoginTime = $userRow['last_login_time'];

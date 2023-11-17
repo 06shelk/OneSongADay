@@ -74,6 +74,7 @@ body {
      height: 30px;
      width: calc(100% - 100px * 2);
      max-width: 400px;
+     font-family: var(--body-font);
  }
 
  /* 사용자 이름과 프로필 사진 */

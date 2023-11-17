@@ -117,6 +117,7 @@ body {
     margin-left: 327px;
     margin-top: 42px;
     border-radius: 2px;
+    font-family: var(--body-font);
  }
 
  .songCover img {
