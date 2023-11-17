@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "mysqlP@ssword", "regist");
+include 'db_connection.php';
 
 if(isset($_POST['boardID'])) {
     $boardID = (int)$_POST['boardID'];

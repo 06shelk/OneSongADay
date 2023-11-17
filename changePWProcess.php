@@ -1,6 +1,6 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <?php
-    $conn = mysqli_connect("localhost", "root", "mysqlP@ssword", "regist");
+    include 'db_connection.php';
 
     session_start(); // 세션 시작
 
