@@ -180,4 +180,9 @@ body {
         /* border: 1px solid rgb(174, 54, 88); */
         width: 90px;
     }
+
+    .column-container:last-child {
+        margin-bottom: 20px;
+    }
+    
 }

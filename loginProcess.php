@@ -30,7 +30,8 @@ if ($result && $result->num_rows > 0) {
 
     $_SESSION['user_id'] = $userid; // 사용자 ID를 세션 변수에 저장
     $_SESSION['username'] = $username; // username을 세션 변수에 저장
-
+    $_SESSION['userImage'] = $userImage;
+    
     // 추가된 부분: last_login_time, last_recommended_id 가져오기
     $lastLoginTime = $userRow['last_login_time'];
     $lastRecommendedId = $userRow['last_recommended_id'];

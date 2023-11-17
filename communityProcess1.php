@@ -17,7 +17,7 @@ $records_per_page = 9;
 $offset = ($page - 1) * $records_per_page;
 
 $tb_username = $_SESSION['username'];
-$tb_userimage = $_SESSION['userImage'];
+
 
 // 사용자의 게시물을 가져옴
 $sql = "SELECT * FROM tb_board";
@@ -267,8 +267,6 @@ if (!$result) {
         include 'get_pagination.php';
         ?>
     </div><!-- page 끝 -->
-
-    <script src="communityProcess1.js" defer></script>
     <script src="js/nav.js"></script>
 </body>
 </html>

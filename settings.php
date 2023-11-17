@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <header>
+<header>
         <nav class="nav-container">
 
             <div class="nav-toggle" id="nav_toggle">
