@@ -1,21 +1,21 @@
-<?php 
+<?php
 session_start();
+include 'db_connection.php'; // 데이터베이스 연결 설정 파일
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 /*********************************************
-* 넘어오는 데이터가 정상인지 검사하기 위한 절차
-* 실제 페이지에서는 적용 X
-**********************************************/
+ * 넘어오는 데이터가 정상인지 검사하기 위한 절차
+ * 실제 페이지에서는 적용 X
+ **********************************************/
 
 /*********************************************
-* 실제로 구축되는 페이지 내부.
-**********************************************/
+ * 실제로 구축되는 페이지 내부.
+ **********************************************/
 
 // 임시로 저장된 정보(tmp_name)
 $tempFile = $_FILES['imgFile']['tmp_name'];
-
 
 // 파일타입 및 확장자 체크
 $fileTypeExt = explode("/", $_FILES['imgFile']['type']);
@@ -59,10 +59,26 @@ if ($fileType == 'image') {
 
         // 업로드 성공 여부 확인
         if ($imageUpload == true) {
-            echo "<img src='{$resFile}' width='100' />";
+            // 데이터베이스 업데이트
+           
             
+
+            $userid = $_SESSION['user_id'];
+
+            // 데이터베이스 쿼리를 사용하여 `tb_user` 테이블에서 해당 사용자의 `userimage` 열을 새 이미지 경로로 업데이트
+            $updateQuery = "UPDATE tb_user SET userimage = '$resFile' WHERE userid = '$userid'";
+            $updateResult = $conn->query($updateQuery);
+
+            if (!$updateResult) {
+                die('Update query failed: ' . mysqli_error($conn));
+            }
+
             // 세션에 새로운 이미지 경로 저장
-            $_SESSION['uploaded_image'] = $resFile;
+            $_SESSION['userImage'] = $resFile;
+
+            // 이미지를 표시합니다.
+            echo "<img src='$resFile' width='100' />";
+
         } else {
             ?>
             <script>

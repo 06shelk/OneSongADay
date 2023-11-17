@@ -156,6 +156,7 @@ body {
     border-radius: 5px;
     background-color: #c8c8c8;  
     border: 1px solid var(--body-color);
+    overflow: hidden;
 }
 
 

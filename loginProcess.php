@@ -3,9 +3,6 @@
 // db_connection.php 파일을 불러와서 연결 설정
 include 'db_connection.php';
 
-// 세션 쿠키 수명을 24시간으로 설정
-ini_set('session.cookie_lifetime', 24 * 60 * 60);
-
 session_start(); // 세션 시작
 
 $userid = $_POST['email'];
@@ -30,53 +27,58 @@ if ($result && $result->num_rows > 0) {
     // 인증 성공 - 사용자가 존재하는 경우
     $userRow = $result->fetch_assoc();
     $username = $userRow['username']; // 해당 사용자의 username 값을 가져옴
-    $userImage = $userRow['userimage']; // 사용자 이미지 경로를 가져옴
-    $_SESSION['userImage'] = $userImage;
 
     $_SESSION['user_id'] = $userid; // 사용자 ID를 세션 변수에 저장
     $_SESSION['username'] = $username; // username을 세션 변수에 저장
 
-    // 사용자가 이미 들은 노래 목록을 세션에서 가져오기
-    $loadedSongs = isset($_SESSION['loaded_songs']) ? $_SESSION['loaded_songs'] : array();
+    // 추가된 부분: last_login_time, last_recommended_id 가져오기
+    $lastLoginTime = $userRow['last_login_time'];
+    $lastRecommendedId = $userRow['last_recommended_id'];
 
-    // 현재 날짜의 자정(KST)의 Unix 타임스탬프를 가져오기
-    $midnightKST = strtotime('today midnight') + 9 * 60 * 60; // UTC+9
+    // 현재 서버 시간대 가져오기
+    date_default_timezone_set('Asia/Seoul'); // 사용자의 지역에 맞게 설정
 
-    // 현재 시간과 마지막 추천 시간을 가져오기 (UTC+9)
-    $currentTime = time() + 9 * 60 * 60; // UTC+9
-    $lastRecommendationTime = isset($_SESSION['last_recommendation_time']) ? $_SESSION['last_recommendation_time'] : 0;
+    // 현재 날짜 가져오기
+    $currentDate = date('Y-m-d');
 
-    // 로그인 완료시 세션 변수 초기화
-    $_SESSION['loaded_songs'] = array();
-    $_SESSION['last_recommendation_time'] = 0;
+    // 현재 날짜와 last_login_time의 날짜 부분을 비교
+    if (date('Y-m-d', strtotime($lastLoginTime)) !== $currentDate) {
+        // last_login_time 업데이트
+        $updateLastLoginTimeQuery = "UPDATE tb_user SET last_login_time = NOW() WHERE userid = '{$userid}'";
+        $conn->query($updateLastLoginTimeQuery);
 
-    if ($currentTime >= $midnightKST && $lastRecommendationTime < $midnightKST) {
+        // 사용자가 이미 들은 노래 목록을 세션에서 가져오기
+        $loadedSongs = isset($_SESSION['loaded_songs']) ? $_SESSION['loaded_songs'] : array();
+
+        // 새로운 곡을 추천
         do {
             // 중복이 없을 때까지 랜덤한 ID 생성
             $randomId = mt_rand(1, 12);
         } while (in_array($randomId, $loadedSongs));
 
+        // last_recommended_id 업데이트
+        $updateLastRecommendedIdQuery = "UPDATE tb_user SET last_recommended_id = '{$randomId}' WHERE userid = '{$userid}'";
+        $conn->query($updateLastRecommendedIdQuery);
+
         // 추천한 노래를 세션에 추가
         $loadedSongs[] = $randomId;
         $_SESSION['loaded_songs'] = $loadedSongs;
 
-        // 마지막 추천 시간 업데이트 (UTC+9)
-        $_SESSION['last_recommendation_time'] = $currentTime;
-
         ?>
         <script>
-            alert("로그인 완료되었습니다. 새로운 노래를 추천합니다!");
+            alert("로그인 완료되었습니다.");
             // PHP에서 생성한 $randomId를 JavaScript로 전달
             var randomId = <?php echo $randomId; ?>;
             window.location.href = "onesongaday.php?id=" + randomId;
         </script>
         <?php
     } else {
+        // 이미 오늘 추천한 경우
         ?>
         <script>
-            alert("로그인 완료되었습니다. 하루에 한 번만 노래를 추천합니다.");
+            alert("로그인 완료되었습니다.");
             // 마지막으로 추천받은 노래로 리다이렉트
-            var lastRecommendedId = <?php echo end($loadedSongs); ?>;
+            var lastRecommendedId = <?php echo $lastRecommendedId; ?>;
             window.location.href = "onesongaday.php?id=" + lastRecommendedId;
         </script>
         <?php

@@ -1,6 +1,11 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <?php
-$conn = mysqli_connect("localhost", "root", "mysqlP@ssword", "regist");
+
+include 'db_connection.php';
+session_start(); // 세션 시작
+
+$tb_userimage = $_SESSION['userImage'];
+
 
 // 게시물의 boardID를 GET 매개변수로 받음
 if(isset($_GET['boardID'])) {
@@ -65,7 +70,7 @@ if(isset($_GET['boardID'])) {
             echo "<div class='board-item'>";
                 echo "<div class='pro'>";
                     echo "<div class='board-items'>";
-                        echo "<div class='image'></div>"; // 이미지 표시
+                    echo "<div class='image'><img id='profileImage' src='" . $row['userimage'] . "' alt='이미지' onerror=\"this.src='userImg/basicPro.jpg'\"></div>";
                     echo "</div>";
                     echo "<div class='board-items'>";
                         echo "<div class='name'>" . $row['memberID'] . "</div>"; // 사용자 이름 표시 
