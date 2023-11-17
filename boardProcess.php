@@ -1,7 +1,4 @@
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <?php
 // db_connection.php 파일을 불러와서 연결 설정
 include 'db_connection.php';
@@ -11,7 +8,31 @@ session_start(); // 세션 시작
 // 파일 업로드 처리
 if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_OK) {
     $targetDir = "uploads/";
-    $targetFile = $targetDir . basename($_FILES["fileInput"]["name"]);
+
+    // 원본 파일명 가져오기
+    $originalFileName = basename($_FILES["fileInput"]["name"]);
+
+    // 파일 확장자 가져오기
+    $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+
+    // 허용된 이미지 파일 확장자 배열
+    $allowedExtensions = ['jpeg', 'jpg', 'gif', 'bmp', 'png'];
+
+    // 파일 확장자가 허용된 확장자인지 확인
+    if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
+        ?>
+        <script>
+            alert("이미지 전용 확장자(jpg, bmp, gif, png)외에는 사용이 불가합니다.");
+            location.href = "board.php";
+        </script>
+        <?php
+        exit;
+    }
+
+    // 타임스탬프를 추가하여 유니크한 파일명 생성
+    $uniqueFileName = time() . '_' . $originalFileName;
+
+    $targetFile = $targetDir . $uniqueFileName;
 
     // 파일 업로드 성공 여부 확인
     if (move_uploaded_file($_FILES["fileInput"]["tmp_name"], $targetFile)) {
@@ -19,11 +40,11 @@ if(isset($_FILES['fileInput']) && $_FILES['fileInput']['error'] === UPLOAD_ERR_O
         $imagePath = mysqli_real_escape_string($conn, $targetFile);
 
         $tb_username = $_SESSION['username'];
-        $tb_userImage = $_SESSION['userImage'];
+        $tb_userimage = $_SESSION['userimage'];
 
         // 게시글 삽입 쿼리
         $sql = "INSERT INTO tb_board(memberID, title, content, image, userimage)
-                VALUES('{$tb_username}', '{$_POST['boardTitle']}', '{$_POST['boardCont']}', '$imagePath', '{$tb_userImage}')";
+                VALUES('{$tb_username}', '{$_POST['boardTitle']}', '{$_POST['boardCont']}', '$imagePath', '{$tb_userimage}')";
 
         $result = mysqli_query($conn, $sql);
 
