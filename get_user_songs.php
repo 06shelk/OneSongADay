@@ -13,7 +13,7 @@ if (!isset($_SESSION['loaded_songs'])) {
 $loadedSongs = $_SESSION['loaded_songs'];
 
 // 사용자 ID에 해당하는 노래 중 새로운 노래만 가져오기
-$selectQuery = "SELECT title FROM tb_song WHERE userId = '$userId' ORDER BY regdate";
+$selectQuery = "SELECT title FROM tb_song WHERE userId = '$userId' ORDER BY regdate DESC";
 
 $result = $conn->query($selectQuery);
 
